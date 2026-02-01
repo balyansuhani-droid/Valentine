@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Will You Be My Valentine? 💖</title>
+
+  <!-- STYLE (this controls how it looks) -->
+  <style>
+    body {
+      background: pink;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    .box {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      position: relative;
+      width: 300px;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      font-size: 18px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .yes {
+      background: #ff4d6d;
+      color: white;
+    }
+
+    .no {
+      background: #ccc;
+      position: absolute;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <h1>Will you be my Valentine? 💘</h1>
+
+    <!-- YES BUTTON -->
+    <button class="yes" onclick="yesClicked()">
+      Yes 💕
+    </button>
+
+    <!-- NO BUTTON (this runs away) -->
+    <button class="no" onmouseover="moveButton()">
+      No 😐
+    </button>
+  </div>
+
+  <!-- SCRIPT (this controls behavior) -->
+  <script>
+    function moveButton() {
+      const button = document.querySelector('.no');
+
+      // Random position inside the box
+      const box = document.querySelector('.box');
+      const maxX = box.clientWidth - button.offsetWidth;
+      const maxY = box.clientHeight - button.offsetHeight;
+
+      const x = Math.random() * maxX;
+      const y = Math.random() * maxY;
+
+      button.style.left = x + "px";
+      button.style.top = y + "px";
+    }
+
+    function yesClicked() {
+      alert("YAYYY 💖 You’re officially my Valentine 😘");
+    }
+  </script>
+</body>
+</html>
